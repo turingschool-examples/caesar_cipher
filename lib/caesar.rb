@@ -18,12 +18,17 @@ class Caesar
     @character_hash[letter]
   end
 
+  def from_file(file_location)
+  
+  end
+
   def encrypt(phrase, rotation)
     cypher(rotation)
     phrase_array = phrase.downcase.chars
-    binding.pry
-    phrase_array.map do |char|
+    # binding.pry
+    thing = phrase_array.map do |char|
       one_letter(char)
+      # binding.pry
     end.compact.join
   end
 end

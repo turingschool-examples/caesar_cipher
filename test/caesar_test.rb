@@ -25,4 +25,10 @@ class CaesarTest < Minitest::Test
     assert_equal "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald", cc.encrypt("the quick brown fox jumps over the lazy dog", -3)
   end
 
+  def translate_from_file
+    cc = Caesar.new
+
+    assert_equal "", cc.from_file
+  end
+
 end
