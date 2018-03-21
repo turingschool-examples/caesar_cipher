@@ -12,6 +12,33 @@ class CaesarTest < Minitest::Test
 
   end
 
+  def test_rotate_method
+    caesar = Caesar.new
+    result = ["x", "y", "z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w"]
+    assert_equal result, caesar.rotate
+
+  end
+
+  def test_zipped_array
+    caesar = Caesar.new
+    result = [["a", "x"], ["b", "y"], ["c", "z"], ["d", "a"], ["e", "b"], ["f", "c"], ["g", "d"], ["h", "e"], ["i", "f"], ["j", "g"], ["k", "h"], ["l", "i"], ["m", "j"], ["n", "k"], ["o", "l"], ["p", "m"], ["q", "n"], ["r", "o"], ["s", "p"], ["t", "q"], ["u", "r"], ["v", "s"], ["w", "t"], ["x", "u"], ["y", "v"], ["z", "w"]]
+    assert_equal result, caesar.zipped_array
+  end
+
+  def test_turn_into_hash_method
+    caesar = Caesar.new
+    result = {"a"=>"x", "b"=>"y", "c"=>"z", "d"=>"a", "e"=>"b", "f"=>"c", "g"=>"d", "h"=>"e", "i"=>"f", "j"=>"g", "k"=>"h", "l"=>"i", "m"=>"j", "n"=>"k", "o"=>"l", "p"=>"m", "q"=>"n", "r"=>"o", "s"=>"p", "t"=>"q", "u"=>"r", "v"=>"s", "w"=>"t", "x"=>"u", "y"=>"v", "z"=>"w"}
+    assert_equal result , caesar.turn_into_hash
+  end
+
+  def test_eng_to_cipher
+    caesar = Caesar.new
+    result = "ebiil"
+    assert_equal result, caesar.eng_to_cipher("helloname", 3)
+
+
+  end
+
 
 
 
