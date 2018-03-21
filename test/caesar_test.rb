@@ -33,6 +33,12 @@ class CaesarTest < Minitest::Test
 
   end
 
+  def test_if_invert_works
+    caesar = Caesar.new
+    result = {"y"=>"a", "z"=>"b", " "=>"c", "a"=>"d", "b"=>"e", "c"=>"f", "d"=>"g", "e"=>"h", "f"=>"i", "g"=>"j", "h"=>"k", "i"=>"l", "j"=>"m", "k"=>"n", "l"=>"o", "m"=>"p", "n"=>"q", "o"=>"r", "p"=>"s", "q"=>"t", "r"=>"u", "s"=>"v", "t"=>"w", "u"=>"x", "v"=>"y", "w"=>"z", "x"=>" "}
+    assert_equal result, caesar.invert_array
+  end
+
   def test_eng_to_cipher
     caesar = Caesar.new
     result = "qebxnrf hxzoltkxcluxgrjmpxlsboxqebxiywvxald"

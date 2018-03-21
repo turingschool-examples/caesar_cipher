@@ -23,7 +23,6 @@ class Caesar
 
   def encrypt(message, number)
     @number = (-number)
-    encrypted = []
     message = message.split("")
     message.map do |letter|
       turn_into_hash[letter]
