@@ -33,21 +33,25 @@ class Caesar
   def cipher_to_eng(phrase, count)
     new_phrase = phrase.chars.map do |letter|
       if letter == letter.upcase
-        letters = ("A".."Z").to_a.join
-        new_letters = letters.chars.rotate(-count).join
-        new_letter = letter.tr(new_letters, letters)
+        upper_case_transform_to_eng(letter, count)
       else 
-        letters = ("a".."z").to_a.join
-        new_letters = letters.chars.rotate(-count).join
-        new_letter = letter.tr(new_letters, letters)
+        lower_case_transform_to_eng(letter, count)
       end
     end 
     puts new_phrase.join
   end
 
+  def upper_case_transform_to_eng(letter, count)
+    letters = ("A".."Z").to_a.join
+    new_letters = letters.chars.rotate(-count).join
+    new_letter = letter.tr(new_letters, letters)
+  end
+
+  def lower_case_transform_to_eng(letter, count)
+    letters = ("a".."z").to_a.join
+    new_letters = letters.chars.rotate(-count).join
+    new_letter = letter.tr(new_letters, letters)
+  end
 end
 
-a = Caesar.new
-a.from_file("example.txt", 4)
-a.cipher_to_eng("F xj fk x cfib", 3 )
 
