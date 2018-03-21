@@ -10,7 +10,7 @@ class Caesar
   end
 
   def cypher(rotation)
-    rotated = rotate_characters(rotation)
+    rotated = rotate_characters(- rotation)
     @character_hash = Hash[@characters.zip(rotated)]
   end
 
@@ -18,28 +18,41 @@ class Caesar
     @character_hash[letter]
   end
 
-  def from_file(file_location)
+  def from_file(file_location, rotation)
     File.open(file_location).each do |line|
       line = line.strip
       @phrase = line.to_s
     end
-    eng_to_cypher(@phrase, -3)
+    eng_to_cypher(@phrase, rotation)
   end
 
   def eng_to_cypher(phrase, rotation)
     cypher(rotation)
-    phrase_array = phrase.downcase.chars
-    # binding.pry
-    thing = phrase_array.map do |char|
+
+    phrase_array = phrase.chars.map { |char| char.gsub(" ", ".")}
+  # binding.pry
+    phrase_array.map do |char|
       one_letter(char)
-      # binding.pry
-    end.compact.join
+
+    end.join
+  end
+
+  def take_out_spaces(phrase)
+    phrase.map do |char|
+      char.gsub(" ", ".")
+    end
+  end
+
+  def put_back_spaces(phrase)
+    phrase.map do |char|
+      char.gsub(".", " ")
+    end
   end
 
   def cypher_to_eng(phrase)
     inverted = @character_hash.invert
     phrase.chars.map do |char|
       inverted[char]
-    end.compact.join
+    end.join
   end
 end
