@@ -30,6 +30,21 @@ class Caesar
     end.join
   end
 
+  def invert_array
+    turn_into_hash.invert
+  end
+
+  def decrypt(message)
+    message = message.split("")
+    message.map do |letter|
+      invert_array[letter]
+    end.join
+  end
+
+
+
+
+
 
 
 end

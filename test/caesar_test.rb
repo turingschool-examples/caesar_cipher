@@ -35,8 +35,10 @@ class CaesarTest < Minitest::Test
 
   def test_eng_to_cipher
     caesar = Caesar.new
-    result = "ebiilxkyjb"
-    assert_equal result, caesar.encrypt("hello name", 3)
+    result = "qebxnrf hxzoltkxcluxgrjmpxlsboxqebxiywvxald"
+    assert_equal result, caesar.encrypt("the quick brown fox jumps over the lazy dog", 3)
+    result_next = "the quick brown fox jumps over the lazy dog"
+    assert_equal result_next, caesar.decrypt(result)
   end
 
 
