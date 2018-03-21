@@ -13,6 +13,7 @@ class CaesarTest < MiniTest::Test
 
   def test_cipher_code
     result = "qeb nrfzh yoltk clu grkmp lsbo qeb ixwv ald"
-    assert_equal result, @caesar.eng_to_cipher("the quick brown fox jumps over the lazy dog", 3) 
+    # binding.pry
+    assert_equal result, @caesar.eng_to_cipher("the quick brown fox jumps over the lazy dog", 3)
   end
 end
