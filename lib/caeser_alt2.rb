@@ -1,5 +1,5 @@
 def caesar_cipher(message)
-  letters_separated = string_to_array(eng_text)
+  letters_separated = string_to_array(message)
   letters_rotated = rotate_letters(letters_separated)
   letters_encrypted = encrypt_letters(letters_rotated)
   output(letters_encrypted)
