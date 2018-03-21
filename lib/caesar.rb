@@ -5,6 +5,7 @@ class Caesar
   def initialize
     @key = 3
     @alphabet =* "a".."z"
+    @cap_alphabet =* "A".."Z"
   end
 
   def self.load_text(file)
@@ -22,11 +23,13 @@ class Caesar
   def eng_to_cypher(phrase, key = @key)
     array_to_shift = phrase.split("")
     shifted = array_to_shift.map do |letter|
-      if @alphabet.include?(letter.downcase) == false
+      if @alphabet.include?(letter) == false && @cap_alphabet.include?(letter) == false
         letter
-      else
+      elsif @alphabet.include?(letter)
         # binding.pry
-        @alphabet[@alphabet.index(letter.downcase) - key]
+        @alphabet[@alphabet.index(letter) - key]
+      elsif @cap_alphabet.include?(letter)
+        @cap_alphabet[@cap_alphabet.index(letter) - key]
       end
     end
     shifted.join
@@ -35,11 +38,13 @@ class Caesar
   def cypher_to_eng(phrase, key = @key)
     array_to_shift = phrase.split("")
     shifted = array_to_shift.map do |letter|
-      if @alphabet.include?(letter.downcase) == false
+      if @alphabet.include?(letter) == false && @cap_alphabet.include?(letter) == false
         letter
-      else
+      elsif @alphabet.include?(letter)
         # binding.pry
-        @alphabet.reverse[@alphabet.reverse.index(letter.downcase) - key]
+        @alphabet.reverse[@alphabet.reverse.index(letter) - key]
+      elsif @cap_alphabet.include?(letter)
+        @cap_alphabet.reverse[@cap_alphabet.reverse.index(letter) - key]
       end
     end
     shifted.join

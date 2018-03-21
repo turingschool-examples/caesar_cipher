@@ -8,7 +8,7 @@ class CaesarTest < MiniTest::Test
   end
 
   def test_eng_to_cypher
-    assert_equal "meoxpb" , @shift_3.eng_to_cypher("Phrase")
+    assert_equal "Meoxpb" , @shift_3.eng_to_cypher("Phrase")
     assert_equal "pljbqefkd" , @shift_3.eng_to_cypher("something")
   end
 
@@ -18,8 +18,7 @@ class CaesarTest < MiniTest::Test
     assert_equal "beware the ides of march!" , @shift_3.cypher_to_eng("ybtxob qeb fabp lc jxoze!")
   end
   def test_load
-
-    assert_equal "cofbkap, oljxkp, zlrkqovjbk, ibka jb vlro bxop;f zljb ql yrov zxbpxo, klq ql moxfpb efj." , @shift_3.eng_to_cypher(Caesar.load_text('./data/phrase.txt'))
+    assert_equal "Cofbkap, Oljxkp, zlrkqovjbk, ibka jb vlro bxop;F zljb ql yrov Zxbpxo, klq ql moxfpb efj." , @shift_3.eng_to_cypher(Caesar.load_text('./data/phrase.txt'))
   end
 end
 
