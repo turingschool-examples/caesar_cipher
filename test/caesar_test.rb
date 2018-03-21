@@ -14,7 +14,8 @@ class CaesarTest < Minitest::Test
 
   def test_one_letter
     cc = Caesar.new
-binding.pry
+    cc.cypher(-3)
+
     assert_equal "q", cc.one_letter("t")
   end
 end

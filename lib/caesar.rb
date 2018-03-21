@@ -19,4 +19,5 @@ class Caesar
     @character_hash[letter]
   end
 
+
 end
