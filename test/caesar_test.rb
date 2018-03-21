@@ -1,23 +1,31 @@
-require '.lib/ceaser.rb'
+require './lib/caesar.rb'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'pry'
 
 class CaesarTest < Minitest::Test
   def test_cipher_exists
-    cipher = CaesarCipher.new
+    cipher = CaesarCipher.new("the quick brown fox jumps over the lazy dog", 3)
     assert_instance_of CaesarCipher, cipher
   end
-  def test_has_key
+  def test_has_data
+    cipher = CaesarCipher.new("the quick brown fox jumps over the lazy dog", 3)
+    assert_equal "the quick brown fox jumps over the lazy dog", cipher.data
   end
-  def test_has_offset
+  def test_can_have_other_data
+  cipher = CaesarCipher.new("this is a different string", 3)
+  assert_equal "this is a different string", cipher.data
   end
-  def test_can_cipher
+  def test_has_shift
+    cipher = CaesarCipher.new("the quick brown fox jumps over the lazy dog", 3)
+    assert_equal 3, cipher.shift
   end
-  def has_case_sensitivity
-  end
-  def test_can_decipher
-  end 
+  # def test_can_encrypt
+  # end
+  # def has_case_sensitivity
+  # end
+  # def test_can_decipher
+  # end
 end
 
 
