@@ -9,7 +9,7 @@ class Caesar
   def to_cipher(string, shift)
     @shift = shift
     cipher = alphabet.chars.rotate(@shift += 20).join
-    return string.swapcase.tr(alphabet, cipher) if cipher.include?('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.upcase)
+    return string.swapcase.tr(alphabet, cipher) if cipher.include?(('A'..'Z').to_a.join)
     string.tr(@alphabet, cipher)
   end
 

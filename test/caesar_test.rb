@@ -3,6 +3,8 @@ require 'minitest/pride'
 require './lib/caesar'
 require 'pry'
 
+# YOUR TESTS GO HERE
+# I PITY THE FOOL WHO DOESNT WRITE TESTS
 class CaesarTest < Minitest::Test
   attr_reader :caesar
   def setup
@@ -29,6 +31,10 @@ class CaesarTest < Minitest::Test
     expected_string = "F Xj fk X cfib"
     assert_equal expected_string, caesar.from_file('./input.txt')
   end
+
+  def test_caesar_can_decipher_code
+    expected_string = "the quick brown fox jumps over the lazy dog"
+    actual_string   = "qeb nrfzh yoltk clu grkmp lsbo qeb ixwv ald"
+    assert_equal expected_string, caesar.to_english(actual_string)
+  end
 end
-# YOUR TESTS GO HERE
-# I PITY THE FOOL WHO DOESNT WRITE TESTS
