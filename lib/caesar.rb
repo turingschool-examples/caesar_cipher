@@ -1,6 +1,10 @@
 class Caesar
-  attr_reader :key
+
 
   def initialize
+  end
+
+  def eng_to_cipher
+
   end
 end
