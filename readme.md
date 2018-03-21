@@ -1,7 +1,7 @@
 ## Caesar Cipher
-Using this [repo](https://github.com/turingschool-examples/caesar_cipher), build a well tested Ruby program that translates a message using the Caesar Cipher. 
+Using this [repo](https://github.com/turingschool-examples/caesar_cipher), build a well tested Ruby program that translates a message using the Caesar Cipher.
 
-You can read more about the Caesar Cipher [here](https://en.wikipedia.org/wiki/Caesar_cipher). 
+You can read more about the Caesar Cipher [here](https://en.wikipedia.org/wiki/Caesar_cipher).
 
 Note: We are shifting left. So if we shift 3, A is now X, D is now A and so forth.
 
@@ -13,12 +13,12 @@ Note: We are shifting left. So if we shift 3, A is now X, D is now A and so fort
 3. Push your solution to your fork
 4. Use Github's interface to create a pull request
 
-### Iteration 0 
+### Iteration 0
 Translate English to ciphertext
 * lowercase letters
 
-```ruby 
-  $ caesar = Caesar.new 
+```ruby
+  $ caesar = Caesar.new
   => #<Caesar:0x007fa1ab98cac0>
   $ caesar.eng_to_cipher("the quick brown fox jumps over the lazy dog", 3) 
   => "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald"
@@ -30,7 +30,7 @@ Translate English to ciphertext
 ```ruby
 $ caesar = Caesar.new
 => #<Caesar:0x007fa1ab98cac0>
-$ caesar.eng_to_cipher("The quick brown fox JUMPS over the lazy DOG", 3) 
+$ caesar.eng_to_cipher("The quick brown fox JUMPS over the lazy DOG", 3)
 => "Qeb nrfzh yoltk clu GRKMP lsbo qeb ixwv ALD"
 ```
 
@@ -44,19 +44,19 @@ Translate English to ciphertext
 I am in a file
 ```
 
-```ruby 
-  $ caesar = Caesar.new 
+```ruby
+  $ caesar = Caesar.new
   => #<Caesar:0x007fa1ab98cac0>
   $ caesar.from_file("input.txt")
   => "F xj fk x cfib "
 ```
 
-### Iteration 3 
+### Iteration 3
 Translate ciphertext to English
 
-```ruby 
-  $ caesar = Caesar.new 
+```ruby
+  $ caesar = Caesar.new
   => #<Caesar:0x007fa1ab98cac0>
-  $ caesar.cipher_to_eng("qeb nrfzh yoltk clu grkmp lsbo qeb ixwv ald") 
+  $ caesar.cipher_to_eng("qeb nrfzh yoltk clu grkmp lsbo qeb ixwv ald")
   => "the quick brown fox jumps over the lazy dog"
 ```
