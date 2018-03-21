@@ -1,2 +1,11 @@
-# YOUR TESTS GOES HERE
-# I PITY THE FOOL WHO DOESNT WRITE TESTS
+require 'minitest/autorun'
+require 'minitest/pride'
+require './lib/caesar_cipher'
+require 'pry'
+
+class CaesarCipherTest < Minitest::Test
+  def setup
+
+
+  end
+end
