@@ -24,5 +24,22 @@ class TestCaesar < Minitest::Test
     assert_equal [72, 101, 108, 108, 111], caesar.convert_ord
   end
 
+  def test_back_to_str
+    caesar = Caesar.new("Hello", 3)
+
+    assert_equal "Ebiil", caesar.back_to_str
+  end
+
+  def test_shift_ord
+    caesar = Caesar.new("Hello", 3)
+
+    assert_equal [69, 98, 105, 105, 108], caesar.shift_ord
+  end
+
+  def test_iteration_zero
+    caesar = Caesar.new("the quick brown fox jumps over the lazy dog", 3)
+
+    assert_equal "qeb nrfzh yoltk clu grkmp lsbo qeb ixwv ald", caesar.back_to_str
+  end
 
 end
