@@ -17,9 +17,9 @@ class Caesar
     end
 #returns 97 through 122 and spaces are 32
     shifted = code.map do |num|
-      if num = 32
-        num = 32
-      elsif num >= 100 
+      if num == 32
+        num
+      elsif num >= 100
         num = num - @shift
       elsif num == 97
         num = 120
@@ -31,10 +31,8 @@ class Caesar
     end
 
 
-
-
-    result = shifted.map {|c| c.chr}.join
-    binding.pry
+    result = shifted.map {|number| number.chr}.join
+  binding.pry 
   end
 
 
