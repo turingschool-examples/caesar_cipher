@@ -1,5 +1,8 @@
-class Caesar
-  attr_reader :key
+
+
+class CaesarCipher
+  
+
 
   def initialize
   end
