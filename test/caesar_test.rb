@@ -14,7 +14,15 @@ class TestCaesar < Minitest::Test
 
   def test_convert_phrase
     caesar = Caesar.new("Hello")
-    assert_equal ["H","e","l","l","o"], caesar.convert_phrase("Hello")
+
+    assert_equal ["H","e","l","l","o"], caesar.convert_phrase
   end
+
+  def test_convert_ord
+    caesar = Caesar.new("Hello")
+
+    assert_equal [72, 101, 108, 108, 111], caesar.convert_ord
+  end
+
 
 end

@@ -5,12 +5,14 @@ class Caesar
     @phrase = phrase
   end
 
-  def make_key
-    
+  def convert_phrase
+    new_phrase = @phrase.chars
   end
 
-  def convert_phrase(phrase)
-    new_phrase = phrase.split ('')
+  def convert_ord
+    phrase_array = @phrase.chars
+    phrase_array.map do |letter|
+      letter.ord
+    end
   end
-
 end
