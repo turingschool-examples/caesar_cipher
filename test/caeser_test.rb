@@ -33,21 +33,18 @@ class CaeserTest < MiniTest::Test
   end
 
   def test_pangram_english_to_cipher_translation
-    skip
     pangram = "the quick brown fox jumps over the lazy dog"
     cipher_result = "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald"
     assert_equal cipher_result, @caeser.eng_to_cipher(pangram)
   end
 
   def test_pangram_case_sensitive_english_to_cipher_translation
-    skip
     pangram = "The quick brown fox JUMPS over the lazy DOG"
     cipher_result = "Qeb nrfzh yoltk clu GRJMP lsbo qeb ixwv ALD"
     assert_equal cipher_result, @caeser.eng_to_cipher(pangram)
   end
 
   def test_input_from_file_to_cipher
-    skip
     # input_file = File.read("./data/input.txt")
     cipher_result = "F xj fk x cfib "
     assert_equal cipher_result, @caeser.from_file_to_cipher("./data/input.txt")

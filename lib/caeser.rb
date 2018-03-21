@@ -14,22 +14,22 @@ class Caeser
     # create new array of ciphered letters by
       # getting index in alphabet
         # If " " return " "
-        # else return same index from rotated alphabet (key)
+        # else return same index from rotated alphabet (key
     ciphered_letters = letters.map do |letter|
       if letter == " "
-        return " "
+        " "
       else
         if letter.downcase != letter
           # Is capitalized
           key_index = @alphabet.find_index(letter.downcase)
-          return @to_cipher_key[key_index].upcase
+          @to_cipher_key[key_index].upcase
         else
           key_index = @alphabet.find_index(letter)
-          # binding.pry
-          return @to_cipher_key[key_index]
+          @to_cipher_key[key_index]
         end
       end
     end
+    # binding.pry
     # join ciphered letters
     return ciphered_letters.join()
   end 
@@ -42,16 +42,16 @@ class Caeser
       # returning letter at index in alphabet
     eng_letters = letters.map do |letter|
       if letter == " "
-        return " "
+        " "
       else
         if letter.downcase != letter
           # is capitalized
           alphabet_index = @from_cipher_key.find_index(letter.downcase)
-          return @alphabet[alphabet_index].upcase
+          @alphabet[alphabet_index].upcase
         else
           # binding.pry
           alphabet_index = @from_cipher_key.find_index(letter)
-          return @alphabet[alphabet_index]
+          @alphabet[alphabet_index]
         end
       end
     end
