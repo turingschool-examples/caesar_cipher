@@ -2,7 +2,7 @@ require 'pry'
 class Caeser
 
   def initialize(shift_value)
-    @alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    @alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     @to_cipher_key = @alphabet.rotate(-shift_value)
     @from_cipher_key = @alphabet.rotate(shift_value)
   end
@@ -19,9 +19,15 @@ class Caeser
       if letter == " "
         return " "
       else
-        key_index = @alphabet.find_index(letter)
-        # binding.pry
-        return @to_cipher_key[key_index]
+        if letter.downcase != letter
+          # Is capitalized
+          key_index = @alphabet.find_index(letter.downcase)
+          return @to_cipher_key[key_index].upcase
+        else
+          key_index = @alphabet.find_index(letter)
+          # binding.pry
+          return @to_cipher_key[key_index]
+        end
       end
     end
     # join ciphered letters
@@ -38,8 +44,15 @@ class Caeser
       if letter == " "
         return " "
       else
-        alphabet_index = @from_cipher_key.find_index(letter)
-        return @alphabet[alphabet_index]
+        if letter.downcase != letter
+          # is capitalized
+          alphabet_index = @from_cipher_key.find_index(letter.downcase)
+          return @alphabet[alphabet_index].upcase
+        else
+          # binding.pry
+          alphabet_index = @from_cipher_key.find_index(letter)
+          return @alphabet[alphabet_index]
+        end
       end
     end
     # join de-ciphered letters

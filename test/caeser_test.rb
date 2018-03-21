@@ -23,14 +23,12 @@ class CaeserTest < MiniTest::Test
   end
 
   def test_single_case_sensitive_eng_to_cipher_translation
-    skip
     assert_equal "a", @caeser.eng_to_cipher("d")
     refute_equal "G", @caeser.eng_to_cipher("j")
   end
 
   def test_single_case_sensitive_cipher_to_eng_translation
-    skip
-    assert_equal "d", @caeser.cipher_to_eng("a")
+    assert_equal "x", @caeser.cipher_to_eng("a")
     refute_equal "J", @caeser.cipher_to_eng("g")
   end
 
