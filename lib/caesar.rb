@@ -11,7 +11,6 @@ class Caesar
 
   def cypher(rotation)
     rotated = rotate_characters(rotation)
-
     @character_hash = Hash[@characters.zip(rotated)]
   end
 
@@ -19,5 +18,8 @@ class Caesar
     @character_hash[letter]
   end
 
-
+  def encrypt(phrase, rotation)
+    cypher(rotation)
+    
+  end
 end

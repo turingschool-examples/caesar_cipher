@@ -18,4 +18,10 @@ class CaesarTest < Minitest::Test
 
     assert_equal "q", cc.one_letter("t")
   end
+
+  def test_encrypt
+    cc = Caesar.new
+    assert_equal "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald", cc.encrypt("the quick brown fox jumps over the lazy dog", 3)
+  end
+
 end
