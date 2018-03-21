@@ -4,7 +4,6 @@ class Caesar
               :rotation
 
   def initialize
-
   end
 
   def eng_to_cipher(message, rotation)
@@ -31,7 +30,4 @@ class Caesar
     coded = individual_characters.map {|charc| key.fetch(charc, ' ')}
     coded.join
   end
-
-
-
 end
