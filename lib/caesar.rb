@@ -11,5 +11,5 @@ class Caesar
     def text_hash(eng_to_cyper)
       @eng_to_cypher = "the quick brown fox jumped over the lazt dog"
     end
-    @caesar.rotate
+    @eng_to_cypher
 end
