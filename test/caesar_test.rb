@@ -21,7 +21,8 @@ class CaesarTest < Minitest::Test
 
   def test_encrypt
     cc = Caesar.new
-    assert_equal "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald", cc.encrypt("the quick brown fox jumps over the lazy dog", 3)
+    # binding.pry
+    assert_equal "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald", cc.encrypt("the quick brown fox jumps over the lazy dog", -3)
   end
 
 end

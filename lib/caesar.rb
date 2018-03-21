@@ -1,7 +1,7 @@
 class Caesar
   attr_reader :character_hash
   def initialize
-    @characters = (" ".."z")
+    @characters = ("a".."z")
     @character_hash = {}
   end
 
@@ -20,6 +20,10 @@ class Caesar
 
   def encrypt(phrase, rotation)
     cypher(rotation)
-    
+    phrase_array = phrase.downcase.chars
+    binding.pry
+    phrase_array.map do |char|
+      one_letter(char)
+    end.compact.join
   end
 end
