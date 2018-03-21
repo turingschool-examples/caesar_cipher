@@ -19,13 +19,17 @@ class Caesar
   end
 
   def from_file(file_location)
-  
+    File.open(file_location).each do |line|
+      line = line.strip
+      @string = line.to_s
+    end
+    encrypt(@string, -3)
   end
 
   def encrypt(phrase, rotation)
     cypher(rotation)
     phrase_array = phrase.downcase.chars
-    # binding.pry
+    binding.pry
     thing = phrase_array.map do |char|
       one_letter(char)
       # binding.pry

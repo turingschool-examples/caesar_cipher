@@ -20,15 +20,21 @@ class CaesarTest < Minitest::Test
   end
 
   def test_encrypt
+    skip
     cc = Caesar.new
     # binding.pry
-    assert_equal "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald", cc.encrypt("the quick brown fox jumps over the lazy dog", -3)
+    assert_equal "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald", cc.encrypt("the quick BROWN fox jumps over the lazy dog", -3)
   end
 
-  def translate_from_file
+  def test_translate_from_file
     cc = Caesar.new
 
-    assert_equal "", cc.from_file
+    assert_equal "", cc.from_file('./input.txt')
   end
+
+  def test_decrypt
+    cc = Caesar.new
+
+    assert_equal "", cc.decrypt("qeb NRFZH yoltk clu grjmp lsbo qeb ixwv ald")
 
 end
