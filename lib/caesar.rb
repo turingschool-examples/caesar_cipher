@@ -1,15 +1,14 @@
 require 'pry'
 class Caesar
-  attr_reader  :dictionary
+  attr_reader  :dictionary, :number
 
   def initialize
-    @dictionary = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
-
-    @number = -3
+    @dictionary = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " "]
+    @number = 0
   end
 
   def rotate
-    new_characters = dictionary.rotate(-3)
+    new_characters = dictionary.rotate(number)
   end
 
   def zipped_array
@@ -21,7 +20,7 @@ class Caesar
   end
 
 
-  def encrypt(message, number)
+  def eng_to_cipher(message, number)
     @number = (-number)
     message = message.split("")
     message.map do |letter|
@@ -33,17 +32,10 @@ class Caesar
     turn_into_hash.invert
   end
 
-  def decrypt(message)
+  def cipher_to_eng(message)
     message = message.split("")
     message.map do |letter|
       invert_array[letter]
     end.join
   end
-
-
-
-
-
-
-
 end

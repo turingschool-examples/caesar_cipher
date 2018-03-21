@@ -9,50 +9,51 @@ class CaesarTest < Minitest::Test
   def test_if_it_exists
     caesar = Caesar.new
     assert_instance_of Caesar, caesar
+    result = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " "]
+    assert_equal result, caesar.dictionary
 
   end
 
   def test_rotate_method
     caesar = Caesar.new
-    result = ["y", "z", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x"]
-    assert_equal result, caesar.rotate
+    assert_equal 53, caesar.rotate.count
 
   end
 
   def test_zipped_array
-
     caesar = Caesar.new
-    result = [["a", "y"], ["b", "z"], ["c", " "], ["d", "a"], ["e", "b"], ["f", "c"], ["g", "d"], ["h", "e"], ["i", "f"], ["j", "g"], ["k", "h"], ["l", "i"], ["m", "j"], ["n", "k"], ["o", "l"], ["p", "m"], ["q", "n"], ["r", "o"], ["s", "p"], ["t", "q"], ["u", "r"], ["v", "s"], ["w", "t"], ["x", "u"], ["y", "v"], ["z", "w"], [" ", "x"]]
-    assert_equal result, caesar.zipped_array
+    assert_equal 53, caesar.zipped_array.count
   end
 
   def test_for_turn_into_hash
     caesar = Caesar.new
-    result = {"a"=>"y", "b"=>"z", "c"=>" ", "d"=>"a", "e"=>"b", "f"=>"c", "g"=>"d", "h"=>"e", "i"=>"f", "j"=>"g", "k"=>"h", "l"=>"i", "m"=>"j", "n"=>"k", "o"=>"l", "p"=>"m", "q"=>"n", "r"=>"o", "s"=>"p", "t"=>"q", "u"=>"r", "v"=>"s", "w"=>"t", "x"=>"u", "y"=>"v", "z"=>"w", " "=>"x"}
-    assert_equal result, caesar.turn_into_hash
+    assert_equal 53, caesar.turn_into_hash.count
 
   end
 
   def test_if_invert_works
     caesar = Caesar.new
-    result = {"y"=>"a", "z"=>"b", " "=>"c", "a"=>"d", "b"=>"e", "c"=>"f", "d"=>"g", "e"=>"h", "f"=>"i", "g"=>"j", "h"=>"k", "i"=>"l", "j"=>"m", "k"=>"n", "l"=>"o", "m"=>"p", "n"=>"q", "o"=>"r", "p"=>"s", "q"=>"t", "r"=>"u", "s"=>"v", "t"=>"w", "u"=>"x", "v"=>"y", "w"=>"z", "x"=>" "}
-    assert_equal result, caesar.invert_array
+    assert_equal 53, caesar.invert_array.count
   end
 
   def test_eng_to_cipher
     caesar = Caesar.new
-    result = "qebxnrf hxzoltkxcluxgrjmpxlsboxqebxiywvxald"
-    assert_equal result, caesar.encrypt("the quick brown fox jumps over the lazy dog", 3)
-    result_next = "the quick brown fox jumps over the lazy dog"
-    assert_equal result_next, caesar.decrypt(result)
+    result = "qebXnrf hXZoltkXcluXgrjmpXlsboXqebXiYwvXald"
+    assert_equal result, caesar.eng_to_cipher("the quick brown fox jumps over the lazy dog", 3)
+  end
+
+  def test_case_sensitivity
+    caesar = Caesar.new
+    result = "QebXnrf hXZoltkXcluXGRJMPXlsboXqebXiYwvXALD"
+    assert_equal result, caesar.eng_to_cipher("The quick brown fox JUMPS over the lazy DOG", 3)
+  end
+
+  def test_if_decrypt_works
+    caesar = Caesar.new
+    caesar.eng_to_cipher("The quick brown fox JUMPS over the lazy DOG", 3)
+    result = "The quick brown fox JUMPS over the lazy DOG"
+    assert_equal result, caesar.cipher_to_eng("QebXnrf hXZoltkXcluXGRJMPXlsboXqebXiYwvXALD")
   end
 
 
-
-
-
-
-
 end
-# YOUR TESTS GOES HERE
-# I PITY THE FOOL WHO DOESNT WRITE TESTS
