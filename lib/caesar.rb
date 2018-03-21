@@ -1,14 +1,15 @@
 require 'pry'
 class Caesar
-  attr_reader  :dictionary, :number
+  attr_reader  :dictionary
 
   def initialize
-    @dictionary = ('a'..'z').to_a
+    @dictionary = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+
     @number = -3
   end
 
   def rotate
-    dictionary.rotate(number)
+    new_characters = dictionary.rotate(-3)
   end
 
   def zipped_array
@@ -19,12 +20,16 @@ class Caesar
     zipped_array.to_h
   end
 
-  def eng_to_cipher(sentence , number)
-    @number = -number
-    sentence.split("").map do|letter|
+
+  def encrypt(message, number)
+    @number = (-number)
+    encrypted = []
+    message = message.split("")
+    message.map do |letter|
       turn_into_hash[letter]
     end.join
   end
+
 
 
 end
