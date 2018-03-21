@@ -51,23 +51,15 @@ class CaeserTest < MiniTest::Test
   end
 
   def test_cipher_text_to_eng_translation
-    skip
     cipher_text = "qeb nrfzh yoltk clu grkmp lsbo qeb ixwv ald"
     eng_result = "the quick brown fox jumps over the lazy dog"
     assert_equal eng_result, @caeser.cipher_to_eng(cipher_text)
   end
 
   def test_case_sensitive_cipher_to_eng_translation
-    skip
     cipher_text = "Qeb nrfzh yoltk clu GRKMP lsbo qeb ixwv ALD"
     eng_result = "The quick brown fox JUMPS over the lazy DOG"
     assert_equal eng_result, @caeser.cipher_to_eng(cipher_text)
-  end
-
-  def test_input_from_cipher_file_to_eng
-    skip
-    # cipher_input = File.read("./data/ciper_input.txt")
-    assert_equal "I am in a file ", @caeser.from_file_to_eng("./data/ciper_input.txt")
   end
 
 end

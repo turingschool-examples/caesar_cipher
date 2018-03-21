@@ -60,11 +60,8 @@ class Caeser
   end
 
   def from_file_to_cipher(input_file)
-    # same process as eng_to_cipher above, but read file data into string first
-  end
-
-  def from_file_to_eng(cipher_file)
-    # same process as cipher_to_eng above, but read file data into string first
+    file = File.read(input_file)
+    self.cipher_to_eng(file)
   end
 
 end
