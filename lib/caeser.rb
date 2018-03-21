@@ -1,26 +1,49 @@
+require 'pry'
 class Caeser
 
   def initialize(shift_value)
-    @alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-    @key = @alphabet.rotate(shift_value)
+    @alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    @to_cipher_key = @alphabet.rotate(-shift_value)
+    @from_cipher_key = @alphabet.rotate(shift_value)
   end
 
 
   def eng_to_cipher(phrase)
     # take given phrase and split into letters and spaces
+    letters = phrase.split("")
     # create new array of ciphered letters by
       # getting index in alphabet
         # If " " return " "
         # else return same index from rotated alphabet (key)
+    ciphered_letters = letters.map do |letter|
+      if letter == " "
+        return " "
+      else
+        key_index = @alphabet.find_index(letter)
+        # binding.pry
+        return @to_cipher_key[key_index]
+      end
+    end
     # join ciphered letters
+    return ciphered_letters.join()
   end 
 
   def cipher_to_eng(cipher)
     # take given cipher and split into letters and spaces
+    letters = cipher.split("")
     # create new array of de-ciphered letters by
       # getting index of letter in rotated alphabet (key)
       # returning letter at index in alphabet
+    eng_letters = letters.map do |letter|
+      if letter == " "
+        return " "
+      else
+        alphabet_index = @from_cipher_key.find_index(letter)
+        return @alphabet[alphabet_index]
+      end
+    end
     # join de-ciphered letters
+    return eng_letters.join()
   end
 
   def from_file_to_cipher(input_file)
