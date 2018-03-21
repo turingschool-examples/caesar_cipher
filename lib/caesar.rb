@@ -1,12 +1,15 @@
 require 'pry'
 class Caesar
+  attr_reader :new_hash
 
   # binding.pry
   def initialize
-  caesar.rotate(3){"the quick brown fox jumps over the lazy dog"}
 
-
-
+    end
+    binding.pry
+    def text_hash
+      @new_hash = {}
+  
     end
 
 end
