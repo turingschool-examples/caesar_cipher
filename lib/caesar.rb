@@ -12,6 +12,7 @@ class Caesar
   def cypher(rotation)
     rotated = rotate_characters(- rotation)
     @character_hash = Hash[@characters.zip(rotated)]
+    @character_hash[" "] = " "
   end
 
   def one_letter(letter)
@@ -28,25 +29,10 @@ class Caesar
 
   def eng_to_cypher(phrase, rotation)
     cypher(rotation)
-
-    phrase_array = phrase.chars.map { |char| char.gsub(" ", ".")}
-  # binding.pry
+    phrase_array = phrase.chars
     phrase_array.map do |char|
       one_letter(char)
-
     end.join
-  end
-
-  def take_out_spaces(phrase)
-    phrase.map do |char|
-      char.gsub(" ", ".")
-    end
-  end
-
-  def put_back_spaces(phrase)
-    phrase.map do |char|
-      char.gsub(".", " ")
-    end
   end
 
   def cypher_to_eng(phrase)

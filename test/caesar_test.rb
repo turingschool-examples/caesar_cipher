@@ -26,12 +26,12 @@ class CaesarTest < Minitest::Test
   def test_translate_from_file
     cc = Caesar.new
 
-    assert_equal "", cc.from_file('./input.txt', 3)
+    assert_equal "F xj fk x cfib ", cc.from_file('./input.txt', 3)
   end
 
   def test_decrypt
     cc = Caesar.new
     cc.cypher(3)
-    assert_equal "", cc.cypher_to_eng("qeb NRFZH yoltk clu grjmp lsbo qeb ixwv ald")
+    assert_equal "the quick BROWN fox jumps over the lazy dog", cc.cypher_to_eng("qeb NRFZH yoltk clu grjmp lsbo qeb ixwv ald")
   end
 end
