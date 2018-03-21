@@ -1,6 +1,12 @@
+require 'pry'
 class Caesar
-  attr_reader :key
 
+  # binding.pry
   def initialize
-  end
+  caesar.rotate(3){"the quick brown fox jumps over the lazy dog"}
+
+
+
+    end
+
 end
