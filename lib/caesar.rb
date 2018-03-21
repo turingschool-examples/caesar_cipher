@@ -1,7 +1,6 @@
 require "pry"
 
 class Caesar
-  # attr_reader :key
 
   def initialize
     @aord = "a".ord #97
@@ -26,36 +25,36 @@ class Caesar
       new_letter_num = letter_num - rotation
       #needs to avoid punctuation:
       if decipher
-        new_letter_num = check_for_bad_decipher_characters(new_letter_num)
+        new_letter_num = check_bad_decipher_chars(new_letter_num)
       else
-        new_letter_num = check_for_bad_encipher_characters(new_letter_num)
+        new_letter_num = check_bad_encipher_chars(new_letter_num)
       end
       new_letter_num.chr
     end.join
   end #cw
 
-  def check_for_bad_encipher_characters(new_letter_num)
+  def check_bad_encipher_chars(letter_num)
     #avoid punctuation for cipher
-    if new_letter_num < @aord && new_letter_num > @capZord
-      shift = @aord - new_letter_num
-      new_letter_num = @zord - shift + 1
-    elsif new_letter_num < @capAord
-      shitf - @capAord - new_letter_num
-      new_letter_num = @capZord - shift + 1
+    if letter_num < @aord && letter_num > @capZord
+      shift = @aord - letter_num
+      letter_num = @zord - shift + 1
+    elsif letter_num < @capAord
+      shitf - @capAord - letter_num
+      letter_num = @capZord - shift + 1
     end
-    new_letter_num
+    letter_num
   end
 
-  def check_for_bad_decipher_characters(new_letter_num)
+  def check_bad_decipher_chars(letter_num)
     #avoid punctuation for decipher:
-    if new_letter_num > @zord
-      shift = @zord - new_letter_num
-      new_letter_num = @aord - shift - 1
-    elsif new_letter_num > @capZord && new_letter_num < @capAord
-      shitf - @capAord - new_letter_num
-      new_letter_num = @capZord - shift - 1
+    if letter_num > @zord
+      shift = @zord - letter_num
+      letter_num = @aord - shift - 1
+    elsif letter_num > @capZord && letter_num < @capAord
+      shitf - @capAord - letter_num
+      letter_num = @capZord - shift - 1
     end
-    new_letter_num
+    letter_num
   end
 
   def from_file(file_name)

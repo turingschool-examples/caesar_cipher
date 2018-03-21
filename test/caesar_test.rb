@@ -5,23 +5,14 @@ require 'minitest/pride'
 require './lib/caesar'
 
 class CaesarTest < MiniTest::Test
-# Caesar Cipher
-# Using this repo, build a well tested Ruby program that translates a message using the Caesar Cipher.
-#
-# You can read more about the Caesar Cipher here.
-#
-# Note: We are shifting left. So if we shift 3, A is now X, D is now A and so forth.
 
-# Push your solution to your fork
-# Use Github's interface to create a pull request
-# Iteration 0
 def setup
   @caesar = Caesar.new
 end
 
 def test_it_can_cipher
-coded = @caesar.eng_to_cipher("the quick brown fox jumps over the lazy dog", 3)
-assert_equal "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald", coded
+  coded = @caesar.eng_to_cipher("the quick brown fox jumps over the lazy dog", 3)
+  assert_equal "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald", coded
 end
 
 # Iteration 1
