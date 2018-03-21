@@ -31,7 +31,7 @@ Translate English to ciphertext
 $ caesar = Caesar.new
 => #<Caesar:0x007fa1ab98cac0>
 $ caesar.eng_to_cipher("The quick brown fox JUMPS over the lazy DOG", 3) 
-=> "Qeb nrfzh yoltk clu GRKMP lsbo qeb ixwv ALD"
+=> "Qeb nrfzh yoltk clu GRJMP lsbo qeb ixwv ALD"
 ```
 
 
@@ -57,6 +57,6 @@ Translate ciphertext to English
 ```ruby 
   $ caesar = Caesar.new 
   => #<Caesar:0x007fa1ab98cac0>
-  $ caesar.cipher_to_eng("qeb nrfzh yoltk clu grkmp lsbo qeb ixwv ald") 
+  $ caesar.cipher_to_eng("qeb nrfzh yoltk clu grJmp lsbo qeb ixwv ald") 
   => "the quick brown fox jumps over the lazy dog"
 ```
