@@ -32,4 +32,6 @@ class Caesar
     coded.join
   end
 
+
+
 end

@@ -75,4 +75,18 @@ class CaesarTest < Minitest::Test
 
     assert_equal "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald", caesar.eng_to_cipher("the quick brown fox jumps over the lazy dog", 3)
   end
+
+  def test_it_can_code_case_sensitive_one_letter
+    caesar = Caesar.new
+
+
+    assert_equal "Qeb", caesar.eng_to_cipher("The", 3)
+  end
+  def test_it_can_translate_case_sensitive
+    skip
+    caesar = Caesar.new
+
+    assert_equal "Qeb nrfzh yoltk clu GRKMP lsbo qeb ixwv ALD", caesar.eng_to_cipher("The quick brown fox JUMPS over the lazy DOG", 3)
+  end
+
 end
