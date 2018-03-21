@@ -21,18 +21,25 @@ class Caesar
   def from_file(file_location)
     File.open(file_location).each do |line|
       line = line.strip
-      @string = line.to_s
+      @phrase = line.to_s
     end
-    encrypt(@string, -3)
+    eng_to_cypher(@phrase, -3)
   end
 
-  def encrypt(phrase, rotation)
+  def eng_to_cypher(phrase, rotation)
     cypher(rotation)
     phrase_array = phrase.downcase.chars
-    binding.pry
+    # binding.pry
     thing = phrase_array.map do |char|
       one_letter(char)
       # binding.pry
+    end.compact.join
+  end
+
+  def cypher_to_eng(phrase)
+    inverted = @character_hash.invert
+    phrase.chars.map do |char|
+      inverted[char]
     end.compact.join
   end
 end

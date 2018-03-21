@@ -23,7 +23,7 @@ class CaesarTest < Minitest::Test
     skip
     cc = Caesar.new
     # binding.pry
-    assert_equal "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald", cc.encrypt("the quick BROWN fox jumps over the lazy dog", -3)
+    assert_equal "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald", cc.eng_to_cypher("the quick BROWN fox jumps over the lazy dog", -3)
   end
 
   def test_translate_from_file
@@ -34,7 +34,7 @@ class CaesarTest < Minitest::Test
 
   def test_decrypt
     cc = Caesar.new
-
-    assert_equal "", cc.decrypt("qeb NRFZH yoltk clu grjmp lsbo qeb ixwv ald")
-
+    cc.cypher(-3)
+    assert_equal "", cc.cypher_to_eng("qeb NRFZH yoltk clu grjmp lsbo qeb ixwv ald")
+  end
 end
